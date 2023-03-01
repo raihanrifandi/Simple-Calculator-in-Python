@@ -1,0 +1,59 @@
+def penambahan(x, y):
+    return x + y
+
+def perkalian(x, y):
+    return x * y
+
+def pengurangan(x, y):
+    return x - y
+
+def pembagian(x, y):
+    return x / y
+
+
+gomenu = True
+while gomenu:
+    
+    print("Kalkulator Duo.")
+    print("1. Penjumlahan")
+    print("2. Perkalian")
+    print("3. Pengurangan")
+    print("4. Pembagian")
+    print("Input X jika ingin keluar dari program")
+    pilihan = input("Pilih menu (1/2/3/4): ")
+   
+    if pilihan in ('1', '2', '3', '4'):
+        flag = True
+        while flag:
+            try:
+                bilangan1 = int(input("Masukkan bilangan pertama: "))
+                bilangan2 = int(input("Masukkan bilangan kedua  : "))
+                gomenu = False
+            except ValueError:
+                print("Invalid input. Masukkan angka tipe integer.")
+                continue
+
+            if pilihan == '1':
+                print(bilangan1, "+", bilangan2, "=", penambahan(bilangan1, bilangan2))
+            
+            elif pilihan == '2':
+                print(bilangan1, "*", bilangan2, "=", perkalian(bilangan1, bilangan2))
+
+            elif pilihan == '3':
+                print(bilangan1, "-", bilangan2, "=", pengurangan(bilangan1, bilangan2))
+
+            elif pilihan == '4':
+                print(bilangan1, ":", bilangan2, "=", pembagian(bilangan1, bilangan2))
+
+            lanjut_part_dua = input("Anda ingin menghitung lagi ? (Y/T)")
+            if lanjut_part_dua == 'Y':
+                gomenu = False
+                flag = True
+            elif lanjut_part_dua == 'T':
+                gomenu = True
+                flag = False
+    if pilihan == 'X':
+        break
+    else:
+        print("Input yang anda masukkan salah")
+        
